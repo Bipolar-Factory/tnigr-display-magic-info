@@ -1,0 +1,1 @@
+# tnigr-diplay-magic-info
