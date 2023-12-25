@@ -51,7 +51,7 @@ This project, **tnigr-display-magic-info**, is a versatile tool that facilitates
 
 ### Tables
 
-#### `tokens`
+#### `register_details`
 
 | Field            | Type         | Description            |
 | ---------------- | ------------ | ---------------------- |
