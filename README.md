@@ -12,8 +12,6 @@ This project, **tnigr-display-magic-info**, is a versatile tool that facilitates
   - [Demo App - Root file `demo.php`](#demo-app---root-file-demophp)
 - [Folder Structure](#folder-structure)
 - [Database Structure](#database-structure)
-  - [Tables](#tables)
-    - [tokens](#tokens)
 - [Author Information](#author-information)
 
 ## Getting Started
@@ -55,14 +53,15 @@ This project, **tnigr-display-magic-info**, is a versatile tool that facilitates
 
 #### `tokens`
 
-| Field            | Type         | Description             |
-|------------------|--------------|-------------------------|
-| id               | INT          | Token ID (Primary Key)  |
-| token_no         | VARCHAR(50)  | Token Number            |
-| token_name       | VARCHAR(100) | Token Name              |
-| token_name_tamil | VARCHAR(100) | Token Name (Tamil)      |
-| speak_status     | INT          | Speak Status            |
+| Field            | Type         | Description            |
+| ---------------- | ------------ | ---------------------- |
+| id               | INT          | Token ID (Primary Key) |
+| token_no         | VARCHAR(50)  | Token Number           |
+| token_name       | VARCHAR(100) | Token Name             |
+| token_name_tamil | VARCHAR(100) | Token Name (Tamil)     |
+| speak_status     | INT          | Speak Status           |
 
 ## Author Information
+
 - **Author**: [Ridwan](https://qridwan.com)
 - **Company**:[Bipolar Factory](https://bipolarfactory.com)
