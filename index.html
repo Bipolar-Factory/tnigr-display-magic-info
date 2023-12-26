@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+	<title>Registration Department</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+
+	<!-- Favicon -->
+	<link rel="icon" href="img/logo-ref.png">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+	<script type="text/javascript" src="js/mespeak.js"></script>
+	<script src="https://code.responsivevoice.org/responsivevoice.js?key=QzvHp2yA"></script>
+	<script src="/portal/script/LedTokenJS/jquery-1.10.1.min.js"></script>
+	<script src="/portal/script/LedTokenJS/sockjs.min.js"></script>
+	<script src="/portal/script/LedTokenJS/stomp.min.js"></script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<style>
+		body {
+			background: url(img/bg-final.png);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.hed h3 {
+			font-size: 18.5px;
+			font-weight: 700;
+			line-height: 30px;
+			margin-bottom: 0px;
+			margin-bottom: 15px;
+			margin-top: 10px;
+		}
+
+		.hole-hed {
+			padding: 40px 0px;
+		}
+
+		hr.no-bre {
+			margin-bottom: 35px;
+		}
+
+		.logo img {
+			float: right;
+		}
+
+		.box table tr td {
+			padding: 11px;
+			font-weight: 600;
+			color: #fff;
+			font-size: 22px;
+		}
+
+		.box {
+			background: url(https://html.dreamitsolution.net/techno/assets/images/call-bg.png);
+			border-radius: 5px;
+			box-shadow: 0 5px 0 rgb(255 255 255 / 16%);
+			padding: 20px 10px 38px;
+			margin: 0px 18px;
+			background-color: #40054a;
+		}
+
+		/*.boc {
+		margin-top: 40px;
+	}*/
+
+		td.count2 {
+			font-size: 30px !important;
+		}
+
+		.box.tab1 p {
+			color: #fff;
+			font-size: 25px;
+			font-weight: 600;
+			margin-bottom: 20px;
+		}
+
+		.nos {
+			text-align: center;
+		}
+
+		.box.tab1 h3 {
+			color: #fff;
+			font-size: 45px;
+			font-weight: 600;
+		}
+
+		hr.du {
+			color: #ffffff;
+		}
+
+		h3.count23 {
+			font-size: 65px !important;
+			font-weight: 700 !important;
+			margin-bottom: 40px !important;
+		}
+
+		.date {
+			background: #fff;
+			margin-top: 22px !important;
+			border: 2px solid #40054a;
+			border-radius: 5px;
+			padding: 5px 0px;
+		}
+
+		.date p {
+			padding: 0px 0px;
+			margin-bottom: 0px;
+			color: #40054a;
+			font-weight: 700;
+			font-size: 22px;
+		}
+
+		.time-zone {
+			width: 81%;
+			margin: -44px auto 0px;
+		}
+
+		/* animation class and keyframes */
+		.overflow-hidden {
+			overflow: hidden;
+		}
+
+		.drop-in {
+			animation: drop-in 1s ease 200ms forwards;
+		}
+
+		img.loho-2 {
+			width: 45%;
+		}
+
+		@keyframes drop-in {
+			from {
+				opacity: 0;
+				transform: translateY(-100px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translate(0px);
+			}
+		}
+	</style>
+	<!--<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;400&display=swap" rel="stylesheet">-->
+</head>
+
+<body>
+	<div class="hole-hed">
+		<div class="container-fluid">
+			<div class="row hed">
+				<div class="col-md-4">
+					<div class="col-md-12  align-self-center" style="text-align: center;">
+						<img src="img/logo-ref.png" class="loho-2">
+						<h3> 1 எண் இணை சார்பதிவாளர் அலுவலகம் <br /> தென் சென்னை</h3>
+					</div>
+
+
+
+					<!--<hr class="no-bre">-->
+					<div class="boc">
+						<div class="row">
+
+							<div class="col-md-12 col-12 nos">
+								<div class="box tab1 overflow-hidden">
+									<p>Token Number / வில்லை எண்</p>
+									<h3 id="text_token_number" class="count23 number">
+										-
+									</h3>
+									<textarea hidden id="toke_no"></textarea>
+									<hr class="du">
+									<p>Name / பெயர் </p>
+									<h3 id="text_token_name" class="" style="font-size: 30px !important;">
+										-
+									</h3>
+									<textarea hidden id="token_name"></textarea>
+
+								</div>
+								<div class="time-zone">
+									<div class="row date">
+										<div class="col-md-4 col-4">
+											<p><span id="cur_time"></span></p>
+										</div>
+										<div class="col-md-8  col-8">
+											<p id="dateDisplay">
+											</p>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div style="display :none" ;?>
+							<input type="range" id="rate" min="1" max="100" value="10" />
+							<input type="range" id="pitch" min="0" max="2" value="1" />
+							<input type="text" id="voices" value="Google UK English Female" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4"></div>
+			<div class="col-md-4"></div>
+
+</body>
+<!-- Javascript Function for WebSocket START-->
+<script type="text/javascript">
+	var stompClient = null;
+
+	function setConnected(connected) {
+		$("#connect").prop("disabled", connected);
+		$("#disconnect").prop("disabled", !connected);
+		if (connected) {
+			$("#conversation").show();
+		}
+		else {
+			$("#conversation").hide();
+		}
+		$("#greetings").html("");
+	}
+
+	function connect() {
+		var socket = new SockJS('http://localhost:8045/eventstore/connect');
+		stompClient = Stomp.over(socket);
+		console.log("Connected");
+		// stompClient.heartbeat.outgoing = 600000;
+		//stompClient.heartbeat.incoming = 600000;
+		stompClient.connect({
+			"userUniqueId": document.getElementById("hiddenTextId").value,
+			withCredentials: false
+		}
+
+			, function (frame) {
+				setConnected(true);
+				stompClient.subscribe('/userUniqueId/topic/refresh-token', function (greeting) {
+					refreshTokenData(greeting.body);
+				});
+				stompClient.subscribe('/userUniqueId/topic/call-token', function (greeting) {
+					callToken(greeting.body);
+				});
+			});
+	}
+
+	function disconnect() {
+		if (stompClient != null) {
+			stompClient.disconnect();
+		}
+		setConnected(false);
+		console.log("Disconnected");
+	}
+
+	function sendName() {
+		stompClient.send("/app/hello", {
+		}, JSON.stringify({
+			'name': $("#name").val(),
+			'toUser': $("#name").val()
+		}));
+	}
+
+	function refreshTokenData(message) {
+		//const jsonObj = JSON.parse(receivedJsonData);
+		console.log(message);
+		let jsonString = message.replace(/'/g, '"');
+		console.log(jsonString);
+		/* $("#greetings").append("<tr><td>" + message + "</td></tr>"); */
+		const jsonObj = JSON.parse(jsonString);
+		setData(jsonObj);
+	}
+
+	function callToken(message) {
+		console.log(message);
+		let jsonString = message.replace(/'/g, '"');
+		console.log(jsonString);
+		const jsonObj = JSON.parse(jsonString);
+		callFirstToken(jsonObj);
+	}
+
+</script>
+<!-- Javascript Function for WebSocket END-->
+<script src="ajax/libs/jquery.min.js"></script>
+
+<!-- Javascript Function for SpeechAPI START -->
+<script type="text/javascript">
+	$(window).ready(function () {
+		connect();
+
+		speak();
+		var today = new Date();
+		if (today.getMinutes() < 10) {
+			var min = "0" + today.getMinutes();
+		} else {
+			var min = today.getMinutes();
+		}
+
+		var time = today.getHours() + ":" + min;
+		var dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
+		var formattedDate = today.toLocaleDateString('en-US', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+
+		if (today.getHours() <= 11) {
+			document.getElementById('cur_time').innerHTML = time + " AM";
+		} else {
+			document.getElementById('cur_time').innerHTML = time + " PM";
+		}
+		$('#dateDisplay').text(dayOfWeek + ' - ' + formattedDate);
+
+
+
+	});
+
+
+	function speak() {
+		var token_no = $('#toke_no').val();
+		var uToken = token_no.split('').join(' ');
+		var token_name = $('#token_name').val();
+
+		responsiveVoice.speak("Your Token Number is", "Tamil Female", {
+			rate: 1.3,
+			onend: function () {
+				setTimeout(function () {
+					responsiveVoice.speak(uToken, "Tamil Female", {
+						rate: 1.1,
+						onend: function () {
+							setTimeout(function () {
+								responsiveVoice.speak("Your Name",
+									"Tamil Female", {
+									rate: 1.3,
+									onend: function () {
+										setTimeout(function () {
+											responsiveVoice
+												.speak(
+													token_name,
+													"Tamil Female", {
+													rate: 1.1
+												});
+										},
+											500
+										); // Wait 0.5 seconds before speaking the name
+									}
+								});
+							},
+								500
+							); // Wait 0.5 seconds before speaking the name label
+						}
+					});
+				}, 500); // Wait 0.5 seconds before speaking the token number
+			}
+		});
+	}
+
+
+
+
+	function setData(jsonObj) {
+		if (jsonObj.tblData[0].Action === "RefreshToken") {
+			$('#token_name').val(jsonObj.tblData[0].personName);
+			$('#toke_no').val(jsonObj.tblData[0].token);
+			$('#text_token_name').text(jsonObj.tblData[0].personName);
+			$('#text_token_number').text(jsonObj.tblData[0].token);
+
+			console.log(jsonObj.tblData[0].personName + " " + jsonObj.tblData[0].token);
+			speak();
+		}
+	}
+
+
+	function callFirstToken(jsonObj2) {
+		if (jsonObj2.tblData[0].Action === "CallFirstToken") {
+			speak();
+		}
+	}
+
+</script>
+
+<script>
+	setTimeout(function () {
+		window.location.reload(1);
+	}, 25000);
+</script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.1/js/materialize.min.js"></script>
+
+</html>
