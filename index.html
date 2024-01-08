@@ -18,14 +18,14 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 
-	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script> -->
 	<script type="text/javascript" src="js/mespeak.js"></script>
-	<script src="https://code.responsivevoice.org/responsivevoice.js?key=QzvHp2yA"></script>
-	<script src="/portal/script/LedTokenJS/jquery-1.10.1.min.js"></script>
+	<!-- <script src="https://code.responsivevoice.org/responsivevoice.js?key=QzvHp2yA"></script> -->
+	<!-- <script src="/portal/script/LedTokenJS/jquery-1.10.1.min.js"></script>
 	<script src="/portal/script/LedTokenJS/sockjs.min.js"></script>
-	<script src="/portal/script/LedTokenJS/stomp.min.js"></script>
+	<script src="/portal/script/LedTokenJS/stomp.min.js"></script> -->
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -178,15 +178,17 @@
 								<div class="box tab1 overflow-hidden">
 									<p>Token Number / வில்லை எண்</p>
 									<h3 id="text_token_number" class="count23 number">
-										-
+										544321
 									</h3>
-									<textarea hidden id="toke_no"></textarea>
+									<textarea hidden id="toke_no">544321</textarea>
 									<hr class="du">
 									<p>Name / பெயர் </p>
 									<h3 id="text_token_name" class="" style="font-size: 30px !important;">
-										-
+										ராமகிருஷ்ணன் க
 									</h3>
-									<textarea hidden id="token_name"></textarea>
+									<textarea hidden id="token_name">
+										ராமகிருஷ்ணன் க
+									</textarea>
 
 								</div>
 								<div class="time-zone">
@@ -294,9 +296,16 @@
 
 <!-- Javascript Function for SpeechAPI START -->
 <script type="text/javascript">
-	$(window).ready(function () {
-		connect();
 
+	var speech = new SpeechSynthesisUtterance();
+	speech.lang = "ta-IN";
+	speech.volume = 0.5;
+	speech.rate = 0.5;
+	speech.pitch = 1;
+
+
+	document.addEventListener("DOMContentLoaded", function () {
+		// connect();
 		speak();
 		var today = new Date();
 		if (today.getMinutes() < 10) {
@@ -316,49 +325,47 @@
 			document.getElementById('cur_time').innerHTML = time + " PM";
 		}
 		$('#dateDisplay').text(dayOfWeek + ' - ' + formattedDate);
-
-
-
 	});
 
 
-	function speak() {
-		var token_no = $('#toke_no').val();
-		var uToken = token_no.split('').join(' ');
-		var token_name = $('#token_name').val();
 
-		responsiveVoice.speak("Your Token Number is", "Tamil Female", {
-			rate: 1.3,
-			onend: function () {
-				setTimeout(function () {
-					responsiveVoice.speak(uToken, "Tamil Female", {
-						rate: 1.1,
-						onend: function () {
-							setTimeout(function () {
-								responsiveVoice.speak("Your Name",
-									"Tamil Female", {
-									rate: 1.3,
-									onend: function () {
-										setTimeout(function () {
-											responsiveVoice
-												.speak(
-													token_name,
-													"Tamil Female", {
-													rate: 1.1
-												});
-										},
-											500
-										); // Wait 0.5 seconds before speaking the name
-									}
-								});
-							},
-								500
-							); // Wait 0.5 seconds before speaking the name label
-						}
-					});
-				}, 500); // Wait 0.5 seconds before speaking the token number
-			}
+
+	async function speak() {
+		//wait for speech to complete and wait 1 sec
+		await new Promise(r => setTimeout(r, 2000));
+		var token_no = document.getElementById('toke_no').value;
+		var uToken = token_no.split('').join(' ');
+		var token_name = document.getElementById('token_name').value;
+		const msg = `Your Token Number is ${uToken}.`;
+
+
+		const speakPromise = new Promise((resolve) => {
+			speech.text = msg;
+			speech.onend = resolve;
+			console.log({ onend: speech.onend(), speech });
+			window.speechSynthesis.speak(speech);
 		});
+
+		await speakPromise;
+
+		//wait for speech to complete and wait 1 sec
+		await new Promise(r => setTimeout(r, 1000));
+
+		const msg2 = `Your Name is ${token_name}`
+
+
+		const speakPromise2 = new Promise((resolve) => {
+			speech.text = msg2;
+			speech.onend = resolve;
+			console.log('speech: ', { speech });
+			window.speechSynthesis.speak(speech);
+		});
+
+		await speakPromise2;
+		//wait for speech to complete and wait 1 sec
+		await new Promise(r => setTimeout(r, 2000));
+		window.location.reload(1);
+
 	}
 
 
@@ -386,14 +393,12 @@
 </script>
 
 <script>
-	setTimeout(function () {
-		window.location.reload(1);
-	}, 25000);
+	// setTimeout(function () {
+	// 	window.location.reload(1);
+	// }, 20000);
 </script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.1/js/materialize.min.js"></script>
 
 </html>
